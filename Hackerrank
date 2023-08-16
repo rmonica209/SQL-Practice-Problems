@@ -40,3 +40,11 @@ Your result cannot contain duplicates.*/
 SELECT DISTINCT(city)
 FROM station 
 WHERE city RLIKE '^[AEIOU]' AND city RLIKE '[aeiou]$';
+
+
+/*Query the list of CITY names from STATION that do not start with vowels. Your result cannot contain duplicates.*/
+
+SELECT DISTINCT(city)
+FROM station
+WHERE upper(SUBSTR(CITY,1,1)) NOT IN ('A','E','I','O','U') AND lower(SUBSTR(CITY,1,1)) NOT IN
+('a','e','i','o','u'); 
