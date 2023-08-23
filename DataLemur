@@ -1,3 +1,4 @@
+/* Data Lemur SQL Practice Problems*/
 
 /*Assume you're given two tables containing data about Facebook Pages and their respective likes (as in "Like a Facebook Page").
 Write a query to return the IDs of the Facebook pages that have zero likes. The output should be sorted in ascending order based on the page IDs.*/
@@ -28,3 +29,13 @@ An unfinished part is one that lacks a finish_date*/
 SELECT part, assembly_step 
 FROM parts_assembly
 WHERE finish_date IS NULL;
+
+
+/*Assume you're given the table on user viewership categorised by device type where the three types are laptop, tablet, and phone.
+Write a query that calculates the total viewership for laptops and mobile devices where mobile is defined as the sum of tablet and phone viewership. 
+Output the total viewership for laptops as laptop_reviews and the total viewership for mobile devices as mobile_views. */
+
+SELECT 
+  COUNT(*) FILTER (WHERE device_type = 'laptop') AS laptop_views,
+  COUNT(*) FILTER (WHERE device_type IN ('tablet', 'phone')) AS mobile_views
+FROM viewership;
