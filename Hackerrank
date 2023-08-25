@@ -71,3 +71,18 @@ SELECT name
 FROM students
 WHERE marks > 75
 ORDER BY RIGHT(name, 3), id;
+
+
+/* Write a query that prints a list of employee names (i.e.: the name attribute) from the Employee table in alphabetical order.*/
++-------------+------------+
+| Column      |   Type     |
++-------------+------------+
+| employee_id | INTEGER    |
+| name        | STRING     |
+| months      | INTEGER    |
+| salary      | INTEGER    |
++-------------+------------+
+
+SELECT name
+FROM employee
+ORDER BY name ASC;
