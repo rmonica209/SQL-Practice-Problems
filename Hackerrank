@@ -102,3 +102,18 @@ per month who have been employees for less than  months. Sort your result by asc
 SELECT name
 FROM employee
 WHERE salary > 2000 AND months < 10;
+
+
+/*Query a count of the number of cities in CITY having a Population larger than .*/
++-------------+--------------+
+| Field       | Type         |
++-------------+--------------+
+| ID          | NUMBER       |
+| NAME        | VARCHAR2(17) |
+| COUNTRYCODE | VARCHAR2(3)  |
+| DISTRICT    | VARCHAR2(20) |
+| POPULATION  | NUMBER       |
++-------------+--------------+
+SELECT COUNT(name)
+FROM city
+WHERE population > 100000;
