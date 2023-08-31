@@ -18,11 +18,24 @@ HAVING COUNT(DISTINCT type) = 2;
 /*Return the total number of comments received for each user in the 30 or less days before 2020-02-10. 
 Don't output users who haven't received any comment in the defined time period.*/
 */fb_comments_count Table
-user_id:            int
-created_at:         datetime
-number_of_comments: int*/
+user_id:             int
+created_at:          datetime
+number_of_comments:  int*/
 
 SELECT user_id, SUM(number_of_comments) AS total_number_of_comments
 FROM fb_comments_count
 WHERE created_at BETWEEN DATE_SUB('2020-02-10', INTERVAL 30 DAY) AND '2020-02-10'
 GROUP BY user_id;
+
+
+/*Return a distribution of users activity per day of the month. By distribution we mean the number of posts per day of the month.*/
+/*facebook_posts Table
+post_id:        int
+poster:         int
+post_text:      varchar
+post_keywords:  varchar
+post_date:      datetime*/
+
+SELECT DAY(post_date) AS day, COUNT(post_id) AS acitvity_per_day
+FROM facebook_posts
+GROUP BY DAY(post_date);
