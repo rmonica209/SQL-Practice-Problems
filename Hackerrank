@@ -124,3 +124,9 @@ WHERE population > 100000;
 SELECT SUM(population)
 FROM city
 WHERE district = 'California';
+
+
+/* Query the average population for all cities in CITY, rounded down to the nearest integer.*/
+
+SELECT ROUND(AVG(population))
+FROM city;
