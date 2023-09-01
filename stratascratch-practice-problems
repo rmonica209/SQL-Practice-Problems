@@ -39,3 +39,17 @@ post_date:      datetime*/
 SELECT DAY(post_date) AS day, COUNT(post_id) AS acitvity_per_day
 FROM facebook_posts
 GROUP BY DAY(post_date);
+
+
+/* Find users who are both a viewer and streamer.*/
+/*twitch_sessions Table:
+user_id:        int
+session_start:  datetime
+session_end:    datetime
+session_id:     int
+session_type:   varchar*/
+
+SELECT user_id 
+FROM twitch_sessions
+WHERE session_type IN('streamer', 'viewer')
+GROUP BY user_id;
