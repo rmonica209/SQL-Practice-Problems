@@ -146,3 +146,32 @@ record_id:              varchar */
 SELECT * 
 FROM los_angeles_restaurant_health_inspections
 WHERE service_description = 'ROUTINE INSPECTION' AND pe_description LIKE '%HIGH RISK%';
+
+
+/* Find the mean of inspections scores between 91 and 100.
+Assuming that the scores are normally distributed.*/
+/*los_angeles_restaurant_health_inspections Table:
+serial_number:          varchar
+activity_date:          datetime
+facility_name:          varchar
+score:                  int
+grade:                  varchar
+service_code:           int
+service_description:    varchar
+employee_id:            varchar
+facility_address:       varchar
+facility_city:          varchar
+facility_id:            varchar
+facility_state:         varchar
+facility_zip:           varchar
+owner_id:               varchar
+owner_name:             varchar
+pe_description:         varchar
+program_element_pe:     int
+program_name:           varchar
+program_status:         varchar
+record_id:              varchar */
+
+SELECT AVG(score) AS average_inspection_score
+FROM los_angeles_restaurant_health_inspections
+WHERE score BETWEEN 91 AND 100;
