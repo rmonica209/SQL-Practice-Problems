@@ -205,3 +205,34 @@ SELECT grade, AVG(score)
 FROM los_angeles_restaurant_health_inspections
 WHERE grade IN ('A', 'B', 'C')
 GROUP BY grade;
+
+
+/* Find the most common grade earned by bakeries.*/
+/*los_angeles_restaurant_health_inspections Table:
+serial_number:          varchar
+activity_date:          datetime
+facility_name:          varchar
+score:                  int
+grade:                  varchar
+service_code:           int
+service_description:    varchar
+employee_id:            varchar
+facility_address:       varchar
+facility_city:          varchar
+facility_id:            varchar
+facility_state:         varchar
+facility_zip:           varchar
+owner_id:               varchar
+owner_name:             varchar
+pe_description:         varchar
+program_element_pe:     int
+program_name:           varchar
+program_status:         varchar
+record_id:              varchar */
+
+SELECT grade 
+FROM los_angeles_restaurant_health_inspections
+WHERE facility_name LIKE '%bakery%'
+GROUP BY grade
+ORDER BY COUNT(grade) DESC
+LIMIT 1;
