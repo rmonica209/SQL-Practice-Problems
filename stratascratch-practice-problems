@@ -293,3 +293,28 @@ SELECT noc, MIN(year) AS first_year
 FROM olympics_athletes_events
 GROUP BY noc
 ORDER BY first_year;
+
+
+/* Find quarterbacks with the most interceptions in 2016. Output the quarterbacks along with the corresponding number of interceptions. 
+Sort records by the interceptions in descending order.*/
+/*qbstats_2015_2016 Table:
+qb:             varchar
+att:            int
+cmp:            int
+yds:            int
+ypa:            float
+td:             int
+int:            int
+lg:             varchar
+sack:           int
+loss:           int
+rate:           float
+game_points:    int
+home_away:      varchar
+year:           int */
+
+SELECT qb, SUM(`int`) AS number_of_interceptions /*int is a reserved key word `` is used*/
+FROM qbstats_2015_2016
+WHERE year = 2016
+GROUP BY qb
+ORDER BY number_of_interceptions DESC;
