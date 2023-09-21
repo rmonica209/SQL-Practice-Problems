@@ -318,3 +318,26 @@ FROM qbstats_2015_2016
 WHERE year = 2016
 GROUP BY qb
 ORDER BY number_of_interceptions DESC;
+
+
+/*Find the top 10 ratings quarterbacks received. Output the quarterback along with the corresponding rating.*/
+/*qbstats_2015_2016 Table:
+qb:             varchar
+att:            int
+cmp:            int
+yds:            int
+ypa:            float
+td:             int
+int:            int
+lg:             varchar
+sack:           int
+loss:           int
+rate:           float
+game_points:    int
+home_away:      varchar
+year:           int */
+
+SELECT qb, rate
+FROM qbstats_2015_2016
+ORDER BY rate DESC
+LIMIT 10;
