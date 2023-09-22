@@ -341,3 +341,30 @@ SELECT qb, rate
 FROM qbstats_2015_2016
 ORDER BY rate DESC
 LIMIT 10;
+
+
+/* Find the top 10 quarterbacks with the highest points in one game in 2016.
+Output the quarterback along with the corresponding game points.
+Order records based on game points in descending order and just output the top 10 rows 
+without considering any ties in game points that would result in more than 10 qbs in the output.*/
+/*qbstats_2015_2016 Table:
+qb:             varchar
+att:            int
+cmp:            int
+yds:            int
+ypa:            float
+td:             int
+int:            int
+lg:             varchar
+sack:           int
+loss:           int
+rate:           float
+game_points:    int
+home_away:      varchar
+year:           int */
+
+SELECT qb, game_points
+FROM qbstats_2015_2016
+WHERE year = 2016
+ORDER BY game_points DESC, qb
+LIMIT 10;
