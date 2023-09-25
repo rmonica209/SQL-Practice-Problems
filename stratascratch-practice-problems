@@ -368,3 +368,26 @@ FROM qbstats_2015_2016
 WHERE year = 2016
 ORDER BY game_points DESC, qb
 LIMIT 10;
+
+
+/*Find the lowest, average, and the highest ages of athletes across all Olympics. 
+HINT: If athlete participated in more than one discipline at one Olympic games, consider it as a separate athlete, no need to remove such edge cases.*/
+/*olympics_athletes_events Table:
+id:        int
+name:      varchar
+sex:       varchar
+age:       float
+height:    float
+weight:    datetime
+team:      varchar
+noc:       varchar
+games:     varchar
+year:      int
+season:    varchar
+city:      varchar
+sport:     varchar
+event:     varchar
+medal:    varchar */
+
+SELECT MIN(age) AS lowest_age, AVG(age) AS average_age, MAX(age) AS highest_age
+FROM olympics_athletes_events;
