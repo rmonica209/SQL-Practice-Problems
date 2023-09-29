@@ -18,3 +18,26 @@ SELECT company, continent
 FROM forbes_global_2010_2014
 WHERE sector = 'Financials'
 HAVING MAX(profits);
+
+
+/*Count the number of companies in the Information Technology sector in each country.
+Output the result along with the corresponding country name.
+Order the result based on the number of companies in the descending order./*
+/*forbes_global_2010_2014 Table:
+company:        varchar
+sector:         varchar
+industry:       varchar
+continent:      varchar
+country:        varchar
+marketvalue:    float
+sales:          float
+profits:        float
+assets:         float
+rank:           int
+forbeswebpage:  varchar */
+
+SELECT country, COUNT(sector) AS num_of_companies
+FROM forbes_global_2010_2014
+WHERE sector = 'Information Technology'
+GROUP BY country
+ORDER BY num_of_companies DESC;
