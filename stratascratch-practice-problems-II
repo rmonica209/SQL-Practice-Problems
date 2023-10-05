@@ -106,3 +106,28 @@ SELECT bike_number, MAX(end_time ) AS last_used
 FROM dc_bikeshare_q1_2012
 GROUP BY bike_number
 ORDER BY last_used DESC;
+
+
+/* Find the gender that has made the most number of doctor appointments.
+Output the gender along with the corresponding number of appointments. */
+/*medical_appointments Table:
+patientid:       float
+appointmentid:   int
+gender:          varchar
+scheduledday:    datetime
+appointmentday:  datetime
+age:             int
+neighbourhood:   varchar
+scholarship:     int
+hipertension:    int
+diabetes:        int
+alcoholism:      int
+handcap:         int
+sms_received:    int
+no_show:         varchar */
+
+SELECT gender, COUNT(appointmentid) AS num_of_appointments
+FROM medical_appointments
+GROUP BY gender
+ORDER BY num_of_appointments DESC
+LIMIT 1;
