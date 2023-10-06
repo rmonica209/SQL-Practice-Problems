@@ -131,3 +131,17 @@ FROM medical_appointments
 GROUP BY gender
 ORDER BY num_of_appointments DESC
 LIMIT 1;
+
+
+/* Find the total number of records that belong to each variety in the dataset. Output the variety along with the corresponding number of records. 
+Order records by the variety in ascending order.*/
+/*iris Table:
+sepal_length:  float
+sepal_width:   float
+petal_length:  float
+petal_width:   float
+variety:       varchar */
+
+SELECT variety, COUNT(variety) AS number_of_records
+FROM iris
+GROUP BY variety;
