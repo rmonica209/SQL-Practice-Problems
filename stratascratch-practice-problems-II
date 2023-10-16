@@ -246,3 +246,24 @@ age:          int */
 
 SELECT guest_id, RANK() OVER (ORDER BY age DESC) AS 'rank'
 FROM airbnb_guests;
+
+
+/* Find the number of Yelp businesses that sell pizza.*/
+/* yelp_business Table:
+business_id:   varchar
+name:          varchar
+neighborhood:  varchar
+address:       varchar
+city:          varchar
+state:         varchar
+postal_code:   varchar
+latitude:      float
+longitude:     float
+stars:         float
+review_count:  int
+is_open:       int
+categories:    varchar */
+
+SELECT COUNT(business_id) 
+FROM yelp_business
+WHERE categories LIKE '%Pizza%';
