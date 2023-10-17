@@ -267,3 +267,28 @@ categories:    varchar */
 SELECT COUNT(business_id) 
 FROM yelp_business
 WHERE categories LIKE '%Pizza%';
+
+
+/* Write a query to find which gender gives a higher average review score when writing reviews as guests. Use the from_type column to identify guest reviews. 
+Output the gender and their average review score. */
+/* airbnb_reviews Table:
+from_user:     int
+to_user:       int
+from_type:     varchar
+to_type:       varchar
+review_score:  int
+
+airbnb_guests Table:
+guest_id:     int
+nationality:  varchar
+gender:       varchar
+age:          int */
+
+SELECT ag.gender, AVG(ar.review_score) AS avg_score
+FROM airbnb_reviews ar
+JOIN airbnb_guests ag
+ON ar.from_user = ag.guest_id
+WHERE from_type = 'guest'
+GROUP BY ag.gender
+ORDER BY avg_score DESC
+LIMIT 1;
