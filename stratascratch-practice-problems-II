@@ -329,3 +329,17 @@ department:    varchar */
 SELECT * 
 FROM worker
 WHERE MONTH(joining_date) = 6 AND worker_id % 2 = 0;
+
+
+/* Find employees who started in February and have odd-numbered employee IDs. */
+/* worker Table:
+worker_id:     int
+first_name:    varchar
+last_name:     varchar
+salary:        int
+joining_date:  datetime
+department:    varchar */
+
+SELECT * 
+FROM worker
+WHERE MONTH(joining_date) = 2 AND (worker_id % 2) != 0;
