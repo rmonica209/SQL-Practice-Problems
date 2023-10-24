@@ -365,3 +365,17 @@ id:           int */
 SELECT day_of_week, COUNT(*) 
 FROM sf_crime_incidents_2014_01
 GROUP BY day_of_week;
+
+
+/* Count the number of movies that Abigail Breslin was nominated for an oscar. */
+/*oscar_nominees Table:
+year:      int
+category:  varchar
+nominee:   varchar
+movie:     varchar
+winner:    bool
+id:        int */
+
+SELECT COUNT(movie)
+FROM oscar_nominees
+WHERE nominee = 'Abigail Breslin';
