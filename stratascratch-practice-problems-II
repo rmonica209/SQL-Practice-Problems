@@ -379,3 +379,15 @@ id:        int */
 SELECT COUNT(movie)
 FROM oscar_nominees
 WHERE nominee = 'Abigail Breslin';
+
+
+/* What is the total sales revenue of Samantha and Lisa? */
+/* sales_performance Table:
+salesperson:    varchar
+widget_sales:   int
+sales_revenue:  int
+id:             int */
+
+SELECT SUM(sales_revenue) 
+FROM sales_performance
+WHERE salesperson = 'Samantha' OR salesperson = 'Lisa';
