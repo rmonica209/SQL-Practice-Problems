@@ -391,3 +391,31 @@ id:             int */
 SELECT SUM(sales_revenue) 
 FROM sales_performance
 WHERE salesperson = 'Samantha' OR salesperson = 'Lisa';
+
+
+/* Find the total number of searches for houses in Westlake neighborhood with a TV among the amenities.*/
+/* airbnb_search_details Table:
+id:                      int
+price:                   float
+property_type:           varchar
+room_type:               varchar
+amenities:               varchar
+accommodates:            int
+bathrooms:               int
+bed_type:                varchar
+cancellation_policy:     varchar
+cleaning_fee:            bool
+city:                    varchar
+host_identity_verified:  varchar
+host_response_rate:      varchar
+host_since:              datetime
+neighbourhood:           varchar
+number_of_reviews:       int
+review_scores_rating:    float
+zipcode:                 int
+bedrooms:                int
+beds:                    int */
+
+SELECT COUNT(*) AS number_of_searches
+FROM airbnb_search_details
+WHERE amenities LIKE '%TV%' AND neighbourhood = 'Westlake' AND property_type = 'house';
