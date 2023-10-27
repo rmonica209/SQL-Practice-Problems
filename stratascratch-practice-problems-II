@@ -419,3 +419,13 @@ beds:                    int */
 SELECT COUNT(*) AS number_of_searches
 FROM airbnb_search_details
 WHERE amenities LIKE '%TV%' AND neighbourhood = 'Westlake' AND property_type = 'house';
+
+
+/* Find the number of relationships that user  with id == 1 is not part of. */
+/*facebook_friends Table:
+user1:  int
+user2:  int */
+
+SELECT COUNT(*)
+FROM facebook_friends
+WHERE user1 != 1 AND user2 != 1;
