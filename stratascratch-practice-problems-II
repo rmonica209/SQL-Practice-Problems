@@ -451,3 +451,19 @@ FROM facebook_posts fp
 JOIN facebook_reactions fr
 ON fp.post_id = fr.post_id
 WHERE fr.reaction = 'heart';
+
+
+/* Find whether hosts or guests give higher review scores based on their average review scores. 
+Output the higher of the average review score rounded to the 2nd decimal spot (e.g., 5.11). */
+/* airbnb_reviews Table:
+from_user:     int
+to_user:       int
+from_type:     varchar
+to_type:       varchar
+review_score:  int */
+
+SELECT from_type, ROUND(AVG(review_score),2) AS avg_review_score
+FROM airbnb_reviews
+GROUP BY from_type
+ORDER BY avg_review_score DESC
+LIMIT 1;
