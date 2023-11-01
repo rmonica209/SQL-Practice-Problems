@@ -27,3 +27,24 @@ SELECT p.lastName, p.firstName, a.city, a.state
 FROM Person p
 LEFT JOIN Address a
 ON p.personId = a.personId;
+
+
+/* Write a solution to find the employees who earn more than their managers.
+Return the result table in any order. 
+
+Table: Employee
+
++-------------+---------+
+| Column Name | Type    |
++-------------+---------+
+| id          | int     |
+| name        | varchar |
+| salary      | int     |
+| managerId   | int     |
++-------------+---------+  */
+
+SELECT e.name as Employee
+FROM Employee e
+INNER JOIN Employee m
+ON e.managerId = m.id
+WHERE e.salary > m.salary;
