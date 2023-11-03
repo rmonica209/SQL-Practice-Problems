@@ -23,3 +23,24 @@ FROM facebook_employees fe
 JOIN facebook_hack_survey fhs
 ON fe.id = fhs.employee_id
 GROUP BY fe.location;
+
+
+/* Find the number of reviews received by Lo-Lo's Chicken & Waffles for each star.
+Output the number of stars along with the corresponding number of reviews.
+Sort records by stars in ascending order. */
+/* yelp_reviews Table:
+business_name:  varchar
+review_id:      varchar
+user_id:        varchar
+stars:          varchar
+review_date:    datetime
+review_text:    varchar
+funny:          int
+useful:         int
+cool:           int */
+
+SELECT COUNT(review_id) AS num_of_reviews, stars 
+FROM yelp_reviews
+WHERE business_name = 'Lo-Lo\'s Chicken & Waffles'
+GROUP BY stars
+ORDER BY stars ASC;
