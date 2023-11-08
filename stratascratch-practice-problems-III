@@ -61,3 +61,23 @@ cool:           int */
 SELECT COUNT(stars) 
 FROM yelp_reviews
 WHERE business_name = 'Lo-Lo\'s Chicken & Waffles' AND stars = 5;
+
+
+/* Find the number of entries per star.
+Output each number of stars along with the corresponding number of entries.
+Order records by stars in ascending order. */
+/* yelp_reviews Table:
+business_name:  varchar
+review_id:      varchar
+user_id:        varchar
+stars:          varchar
+review_date:    datetime
+review_text:    varchar
+funny:          int
+useful:         int
+cool:           int */
+
+SELECT stars, COUNT(*) AS number_of_entries
+FROM yelp_reviews
+GROUP BY stars
+ORDER BY stars ASC;
