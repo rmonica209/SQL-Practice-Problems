@@ -103,3 +103,24 @@ categories:    varchar */
 SELECT state, AVG(stars) 
 FROM yelp_business
 GROUP BY state;
+
+
+/* Find the number of open businesses. */
+/* yelp_business Table:
+business_id:   varchar
+name:          varchar
+neighborhood:  varchar
+address:       varchar
+city:          varchar
+state:         varchar
+postal_code:   varchar
+latitude:      float
+longitude:     float
+stars:         float
+review_count:  int
+is_open:       int
+categories:    varchar */
+
+SELECT COUNT(is_open) AS open_businesses
+FROM yelp_business
+WHERE is_open = 1;
