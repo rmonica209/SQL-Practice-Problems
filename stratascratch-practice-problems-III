@@ -124,3 +124,26 @@ categories:    varchar */
 SELECT COUNT(is_open) AS open_businesses
 FROM yelp_business
 WHERE is_open = 1;
+
+
+/* Find the review count for one-star businesses from yelp.
+Output the name along with the corresponding review count. */
+/* yelp_business Table:
+business_id:   varchar
+name:          varchar
+neighborhood:  varchar
+address:       varchar
+city:          varchar
+state:         varchar
+postal_code:   varchar
+latitude:      float
+longitude:     float
+stars:         float
+review_count:  int
+is_open:       int
+categories:    varchar */
+
+SELECT name, review_count
+FROM yelp_business
+WHERE stars = 1
+GROUP BY name;
