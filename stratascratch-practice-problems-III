@@ -171,3 +171,23 @@ FROM yelp_business
 GROUP BY name
 ORDER BY review_count DESC
 LIMIT 5;
+
+
+/* Find the number of US-based wineries that have expensive wines.
+A wine is considered to be expensive if its price is $200 or more. */
+/* winemag_p1 Table:
+id:           int
+country:      varchar
+description:  varchar
+designation:  varchar
+points:       int
+price:        float
+province:     varchar
+region_1:     varchar
+region_2:     varchar
+variety:      varchar
+winery:       varchar */
+
+SELECT COUNT(DISTINCT winery) AS number_of_wineries
+FROM winemag_p1
+WHERE country = 'US' AND price >= 200;
