@@ -210,3 +210,24 @@ winery:       varchar */
 SELECT DISTINCT(variety) 
 FROM winemag_p2
 WHERE taster_name = 'Roger Voss' and region_1 IS NOT NULL;
+
+
+/* Find all wine varieties which can be considered cheap based on the price.
+A variety is considered cheap if the price of a bottle lies between 5 to 20 USD.
+Output unique variety names only. */
+/* winemag_p1 Table:
+id:           int
+country:      varchar
+description:  varchar
+designation:  varchar
+points:       int
+price:        float
+province:     varchar
+region_1:     varchar
+region_2:     varchar
+variety:      varchar
+winery:       varchar */
+
+SELECT DISTINCT(variety)  
+FROM winemag_p1
+WHERE price BETWEEN 5 AND 20;
