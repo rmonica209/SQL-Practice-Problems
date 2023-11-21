@@ -270,3 +270,16 @@ winery:       varchar */
 SELECT price 
 FROM winemag_p1
 WHERE country IN ('Spain', 'Italy', 'France');
+
+
+/* Find the total costs and total customers acquired in each year.
+Output the year along with corresponding total money spent and total acquired customers. */
+/* uber_advertising Table:
+year:                 int
+advertising_channel:  varchar
+money_spent:          int
+customers_acquired:   int */
+
+SELECT year, SUM(money_spent) AS total_moeny_spent, SUM(customers_acquired) AS total_customers
+FROM uber_advertising
+GROUP BY year;
