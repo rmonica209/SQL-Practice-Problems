@@ -283,3 +283,18 @@ customers_acquired:   int */
 SELECT year, SUM(money_spent) AS total_moeny_spent, SUM(customers_acquired) AS total_customers
 FROM uber_advertising
 GROUP BY year;
+
+
+/* Find the average cost of each request status.
+Request status can be either 'success' or 'fail'.
+Output the request status along with the average cost. */
+/* uber_ride_requests Table:
+request_id:                 int
+request_status:             varchar
+distance_to_travel:         float
+monetary_cost:              float
+driver_to_client_distance:  float */
+
+SELECT request_status, AVG(monetary_cost) AS average_cost 
+FROM uber_ride_requests
+GROUP BY request_status;
