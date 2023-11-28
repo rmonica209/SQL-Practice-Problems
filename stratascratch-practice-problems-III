@@ -298,3 +298,32 @@ driver_to_client_distance:  float */
 SELECT request_status, AVG(monetary_cost) AS average_cost 
 FROM uber_ride_requests
 GROUP BY request_status;
+
+
+/* Find the average distance traveled in each hour.
+Output the hour along with the corresponding average traveled distance.
+Sort records by the hour in ascending order. */
+/* lyft_rides Table:
+index:            int
+weather:          varchar
+hour:             int
+travel_distance:  float
+gasoline_cost:    float */
+
+SELECT hour, AVG(travel_distance) AS average_distance_traveled 
+FROM lyft_rides
+GROUP BY hour;
+
+
+/* Find the hour with the highest gasoline cost. Assume there's only 1 hour with the highest gas cost. */
+/* lyft_rides Table:
+index:            int
+weather:          varchar
+hour:             int
+travel_distance:  float
+gasoline_cost:    float */
+
+SELECT hour
+FROM lyft_rides
+ORDER BY gasoline_cost DESC
+LIMIT 1;
