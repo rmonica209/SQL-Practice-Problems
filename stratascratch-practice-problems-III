@@ -327,3 +327,16 @@ SELECT hour
 FROM lyft_rides
 ORDER BY gasoline_cost DESC
 LIMIT 1;
+
+
+/* Find all Lyft rides which happened on rainy days before noon. */
+/* lyft_rides Table:
+index:            int
+weather:          varchar
+hour:             int
+travel_distance:  float
+gasoline_cost:    float */
+
+SELECT * 
+FROM lyft_rides
+WHERE hour < 12 AND weather = "rainy";
