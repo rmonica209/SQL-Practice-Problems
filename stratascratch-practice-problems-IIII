@@ -1,0 +1,19 @@
+/* stratascratch.com Practice Problems*/
+
+
+/* Find songs that are ranked between 8-10.
+Output the track name along with the corresponding position, ordered ascendingly. */
+/* spotify_worldwide_daily_song_ranking Table:
+id:         int
+position:   int
+trackname:  varchar
+artist:     varchar
+streams:    int
+url:        varchar
+date:       datetime
+region:     varchar */
+
+SELECT trackname, position
+FROM spotify_worldwide_daily_song_ranking
+WHERE position IN (8,9,10)
+ORDER BY position;
