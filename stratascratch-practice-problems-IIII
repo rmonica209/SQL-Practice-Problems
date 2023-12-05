@@ -17,3 +17,19 @@ SELECT trackname, position
 FROM spotify_worldwide_daily_song_ranking
 WHERE position IN (8,9,10)
 ORDER BY position;
+
+
+/*Find the total number of streams for the top 100 ranked songs.*/
+/* spotify_worldwide_daily_song_ranking Table:
+id:         int
+position:   int
+trackname:  varchar
+artist:     varchar
+streams:    int
+url:        varchar
+date:       datetime
+region:     varchar */
+
+SELECT SUM(streams) AS number_of_streams
+FROM spotify_worldwide_daily_song_ranking
+WHERE position <=100;
