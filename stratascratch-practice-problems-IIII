@@ -33,3 +33,36 @@ region:     varchar */
 SELECT SUM(streams) AS number_of_streams
 FROM spotify_worldwide_daily_song_ranking
 WHERE position <=100;
+
+
+/* Find the average number of streams across all songs. */
+/* spotify_worldwide_daily_song_ranking Table:
+id:         int
+position:   int
+trackname:  varchar
+artist:     varchar
+streams:    int
+url:        varchar
+date:       datetime
+region:     varchar */
+
+SELECT AVG(streams) AS average_streams 
+FROM spotify_worldwide_daily_song_ranking;
+
+/* Find the top 10 ranked songs by position. Output the track name along with the corresponding position and sort records 
+by the position in descending order and track name alphabetically,  as there are many tracks that are tied for the same position.*/
+/* spotify_worldwide_daily_song_ranking Table:
+id:         int
+position:   int
+trackname:  varchar
+artist:     varchar
+streams:    int
+url:        varchar
+date:       datetime
+region:     varchar */
+
+SELECT trackname, position 
+FROM spotify_worldwide_daily_song_ranking
+WHERE position <= 10
+GROUP BY trackname, position
+ORDER BY position, trackname DESC;
