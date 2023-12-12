@@ -105,3 +105,44 @@ SELECT artist, COUNT(position) AS number_of_occurrences
 FROM spotify_worldwide_daily_song_ranking
 GROUP BY artist
 ORDER BY number_of_occurrences DESC;
+
+
+/* Find songs that have more than 3 million streams.
+Output the track name, artist, and the corresponding streams.
+Sort records based on streams in descending order. */
+/* spotify_worldwide_daily_song_ranking Table:
+id:         int
+position:   int
+trackname:  varchar
+artist:     varchar
+streams:    int
+url:        varchar
+date:       datetime
+region:     varchar */
+
+SELECT trackname, artist, streams 
+FROM spotify_worldwide_daily_song_ranking
+WHERE streams > 3000000;
+
+
+/* Get the job titles of the 3 employees who received the most overtime pay
+Output the job title of selected records. */
+/* sf_public_salaries Table:
+id:                int
+employeename:      varchar
+jobtitle:          varchar
+basepay:           float
+overtimepay:       float
+otherpay:          float
+benefits:          float
+totalpay:          float
+totalpaybenefits:  float
+year:              int
+notes:             datetime
+agency:            varchar
+status:            varchar */
+
+SELECT jobtitle 
+FROM sf_public_salaries
+ORDER BY overtimepay DESC
+LIMIT 3;
