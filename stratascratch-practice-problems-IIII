@@ -146,3 +146,25 @@ SELECT jobtitle
 FROM sf_public_salaries
 ORDER BY overtimepay DESC
 LIMIT 3;
+
+
+/* Find all employees with a job title that contains 'METROPOLITAN TRANSIT AUTHORITY' and 
+output the employee's name along with the corresponding total pay with benefits. */
+/* sf_public_salaries Table:
+id:                int
+employeename:      varchar
+jobtitle:          varchar
+basepay:           float
+overtimepay:       float
+otherpay:          float
+benefits:          float
+totalpay:          float
+totalpaybenefits:  float
+year:              int
+notes:             datetime
+agency:            varchar
+status:            varchar */
+
+SELECT employeename, totalpaybenefits 
+FROM sf_public_salaries
+WHERE jobtitle LIKE '%METROPOLITAN TRANSIT AUTHORITY%';
