@@ -168,3 +168,47 @@ status:            varchar */
 SELECT employeename, totalpaybenefits 
 FROM sf_public_salaries
 WHERE jobtitle LIKE '%METROPOLITAN TRANSIT AUTHORITY%';
+
+
+/* Find benefits that people with the name 'Patrick' have.
+Output the full employee name along with the corresponding benefits. */
+/* sf_public_salaries Table:
+id:                int
+employeename:      varchar
+jobtitle:          varchar
+basepay:           float
+overtimepay:       float
+otherpay:          float
+benefits:          float
+totalpay:          float
+totalpaybenefits:  float
+year:              int
+notes:             datetime
+agency:            varchar
+status:            varchar */
+
+SELECT employeename, benefits 
+FROM sf_public_salaries
+WHERE employeename LIKE '%Patrick%';
+
+
+/* Find job titles that had 0 hours of overtime.
+Output unique job title names. */
+/* sf_public_salaries Table:
+id:                int
+employeename:      varchar
+jobtitle:          varchar
+basepay:           float
+overtimepay:       float
+otherpay:          float
+benefits:          float
+totalpay:          float
+totalpaybenefits:  float
+year:              int
+notes:             datetime
+agency:            varchar
+status:            varchar */
+
+SELECT DISTINCT(jobtitle) 
+FROM sf_public_salaries
+WHERE overtimepay = 0;
