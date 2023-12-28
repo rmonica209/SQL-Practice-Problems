@@ -234,3 +234,28 @@ status:            varchar */
 SELECT employeename, basepay 
 FROM sf_public_salaries
 WHERE jobtitle LIKE '%Police%';
+
+
+/* Find Olympics games that the youngest and the oldest athletes participated in the history of Olympics.
+Output all the details corresponding to each record. */
+/* olympics_athletes_events Table:
+id:      int
+name:    varchar
+sex:     varchar
+age:     float
+height:  float
+weight:  datetime
+team:    varchar
+noc:     varchar
+games:   varchar
+year:    int
+season:  varchar
+city:    varchar
+sport:   varchar
+event:   varchar
+medal:   varchar */
+
+SELECT * 
+FROM olympics_athletes_events
+WHERE age = (SELECT MIN(age) FROM olympics_athletes_events) OR 
+age = (SELECT MAX(age) FROM olympics_athletes_events);
