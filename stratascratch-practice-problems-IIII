@@ -259,3 +259,29 @@ SELECT *
 FROM olympics_athletes_events
 WHERE age = (SELECT MIN(age) FROM olympics_athletes_events) OR 
 age = (SELECT MAX(age) FROM olympics_athletes_events);
+
+
+/* Find the history of each sport by finding the first year, last year, and the total number of occasions that was sport played in the Olympics.
+Output the sport name along with the first year, last year, and the total number of occasions.
+Order records by the first year in descending order. */
+/* olympics_athletes_events Table:
+id:      int
+name:    varchar
+sex:     varchar
+age:     float
+height:  float
+weight:  datetime
+team:    varchar
+noc:     varchar
+games:   varchar
+year:    int
+season:  varchar
+city:    varchar
+sport:   varchar
+event:   varchar
+medal:   varchar */
+
+SELECT sport, MIN(year) AS first_year, MAX(year) AS last_year, COUNT(DISTINCT year) AS total_num_of_occasions
+FROM olympics_athletes_events
+GROUP BY sport
+ORDER BY first_year DESC;
