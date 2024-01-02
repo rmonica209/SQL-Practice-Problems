@@ -285,3 +285,31 @@ SELECT sport, MIN(year) AS first_year, MAX(year) AS last_year, COUNT(DISTINCT ye
 FROM olympics_athletes_events
 GROUP BY sport
 ORDER BY first_year DESC;
+
+
+/* Find the Olympic game which had the highest number of participants that didn't earn a medal.
+Output the Olympic game name along with the corresponding number of athletes.
+Olympic game name consists of the year and the season. */
+/* olympics_athletes_events Table:
+id:      int
+name:    varchar
+sex:     varchar
+age:     float
+height:  float
+weight:  datetime
+team:    varchar
+noc:     varchar
+games:   varchar
+year:    int
+season:  varchar
+city:    varchar
+sport:   varchar
+event:   varchar
+medal:   varchar */
+
+SELECT games, COUNT(DISTINCT name) AS number_of_athletes
+FROM olympics_athletes_events
+WHERE medal IS NULL
+GROUP BY games
+ORDER BY number_of_athletes DESC
+LIMIT 1;
