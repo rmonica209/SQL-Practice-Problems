@@ -310,6 +310,29 @@ medal:   varchar */
 SELECT games, COUNT(DISTINCT name) AS number_of_athletes
 FROM olympics_athletes_events
 WHERE medal IS NULL
+
+
+/* Find events of any Winter Olympics in which there were athletes of height between 180 to 210 centimeters. Output unique events only. */
+/* olympics_athletes_events Table:
+id:      int
+name:    varchar
+sex:     varchar
+age:     float
+height:  float
+weight:  datetime
+team:    varchar
+noc:     varchar
+games:   varchar
+year:    int
+season:  varchar
+city:    varchar
+sport:   varchar
+event:   varchar
+medal:   varchar */
+
+SELECT DISTINCT event 
+FROM olympics_athletes_events
+WHERE season = 'Winter' AND height BETWEEN 180 AND 210;
 GROUP BY games
 ORDER BY number_of_athletes DESC
 LIMIT 1;
