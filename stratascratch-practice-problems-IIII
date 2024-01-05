@@ -359,3 +359,28 @@ medal:   varchar */
 SELECT name 
 FROM olympics_athletes_events
 WHERE age > 40 AND medal IN ('Silver', 'Bronze');
+
+
+/* Find all minor that participated in Olympics games.
+A player is considered as a minor if he or she is 18 or less years old.
+Output the name and age of the player along with participated Olympic games (ex: 1992 Summer). */
+/* olympics_athletes_events Table:
+id:      int
+name:    varchar
+sex:     varchar
+age:     float
+height:  float
+weight:  datetime
+team:    varchar
+noc:     varchar
+games:   varchar
+year:    int
+season:  varchar
+city:    varchar
+sport:   varchar
+event:   varchar
+medal:   varchar */
+
+SELECT name, age, games
+FROM olympics_athletes_events
+WHERE age <= 18;
