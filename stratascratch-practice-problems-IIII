@@ -384,3 +384,27 @@ medal:   varchar */
 SELECT name, age, games
 FROM olympics_athletes_events
 WHERE age <= 18;
+
+
+/* Find all Danish athletes who won a medal.
+Output unique names only. */
+/* olympics_athletes_events Table:
+id:      int
+name:    varchar
+sex:     varchar
+age:     float
+height:  float
+weight:  datetime
+team:    varchar
+noc:     varchar
+games:   varchar
+year:    int
+season:  varchar
+city:    varchar
+sport:   varchar
+event:   varchar
+medal:   varchar */
+
+SELECT DISTINCT name 
+FROM olympics_athletes_events
+WHERE medal IS NOT NULL AND team LIKE '%Denmark%';
