@@ -25,3 +25,29 @@ FROM library_usage
 WHERE total_renewals < 10 AND total_renewals >= 1
 AND circulation_active_month = 'April'
 AND circulation_active_year = 2015;
+
+
+/* Find libraries with the highest number of total renewals.
+Output all home library definitions along with the corresponding total renewals.
+Order records by total renewals in descending order. */
+/* library_usage Table:
+patron_type_code:              int
+patron_type_definition:        varchar
+total_checkouts:               int
+total_renewals:                int
+age_range:                     varchar
+home_library_code:             varchar
+home_library_definition:       varchar
+circulation_active_month:      varchar
+circulation_active_year:       float
+notice_preference_code:        varchar
+notice_preference_definition:  varchar
+provided_email_address:        bool
+year_patron_registered:        int
+outside_of_county:             bool
+supervisor_district:           float */
+
+SELECT home_library_definition, SUM(total_renewals) AS Highest_total_renewals
+FROM library_usage
+GROUP BY home_library_definition
+ORDER BY highest_total_renewals DESC;
